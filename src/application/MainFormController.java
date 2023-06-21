@@ -4,12 +4,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import com.MySql.Util.DatabaseUtil;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.*;
+import java.sql.*;
 
 public class MainFormController {
 
@@ -38,13 +45,13 @@ public class MainFormController {
     private ImageView SearchBtn;
 
     @FXML
-    private ImageView SidebarBtn;
-
-    @FXML
     private ToggleButton TVshowsBtn;
 
     @FXML
     private ToggleButton Top10Btn;
+
+    @FXML
+    private ImageView UserIcon;
 
     @FXML
     private Label UserNametxt;
@@ -133,21 +140,6 @@ public class MainFormController {
     }
 
     @FXML
-    void SidebarBtn_Clicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void SidebarBtn_HoverIn(MouseEvent event) {
-
-    }
-
-    @FXML
-    void SidebarBtn_HoverOut(MouseEvent event) {
-
-    }
-
-    @FXML
     void TVshowsBtn_Clicked(ActionEvent event) {
 
     }
@@ -178,6 +170,11 @@ public class MainFormController {
     }
 
     @FXML
+    void UserIcon_Clicked(MouseEvent event) {
+
+    }
+
+    @FXML
     void WatchlistBtn_Clicked(ActionEvent event) {
 
     }
@@ -189,8 +186,7 @@ public class MainFormController {
 
     @FXML
     void initialize() {
-
+        
     }
 
 }
-

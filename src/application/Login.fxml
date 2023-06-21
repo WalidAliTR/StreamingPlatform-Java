@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -10,21 +11,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="245.0" prefWidth="444.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+<AnchorPane prefHeight="279.0" prefWidth="444.0" style="-fx-background-color: #38598b;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children>
-      <Button fx:id="Btn1" layoutX="302.0" layoutY="123.0" mnemonicParsing="false" onAction="#Btn_Click" onMouseClicked="#Btn_Click" prefHeight="73.0" prefWidth="73.0" text="Enter" />
-      <TextField fx:id="UserBox" layoutX="72.0" layoutY="123.0" prefHeight="34.0" prefWidth="201.0" promptText="User Name" />
-      <Text layoutX="100.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WA's Videos" textAlignment="CENTER" wrappingWidth="243.56622314453125">
+      <Button fx:id="LoginBtn" layoutX="301.0" layoutY="128.0" mnemonicParsing="false" onMouseClicked="#LoginBtn_Click" prefHeight="83.0" prefWidth="74.0" style="-fx-background-color: #e7eaf6;" text="Enter" />
+      <TextField fx:id="UserBox" layoutX="72.0" layoutY="131.0" prefHeight="34.0" prefWidth="201.0" promptText="User Name" style="-fx-background-color: #e7eaf6;" />
+      <Text fill="#a2a8d3" layoutX="187.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WA Videos" textAlignment="CENTER" wrappingWidth="188.36627197265625">
          <font>
             <Font name="Bernard MT Condensed" size="48.0" />
          </font>
       </Text>
-      <PasswordField fx:id="PassBox" layoutX="72.0" layoutY="167.0" prefHeight="34.0" prefWidth="202.0" promptText="Password" />
-      <ImageView fitHeight="73.0" fitWidth="76.0" layoutX="67.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <PasswordField fx:id="PassBox" layoutX="72.0" layoutY="174.0" prefHeight="34.0" prefWidth="202.0" promptText="Password" style="-fx-background-color: #e7eaf6;" />
+      <ImageView fitHeight="83.0" fitWidth="93.0" layoutX="90.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Downloads/filmmaking.png" />
+            <Image url="@../../Pictures/filmmaking(1).png" />
          </image>
       </ImageView>
+      <Hyperlink fx:id="NewAccountBtn" layoutX="38.0" layoutY="215.0" onAction="#NewAccountBtn_Click" text="Click Here To Create Account Using Entered Data" textFill="#a2a8d3" />
    </children>
    <effect>
       <InnerShadow choke="0.84" />

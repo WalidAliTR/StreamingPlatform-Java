@@ -4,6 +4,8 @@
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.Tooltip?>
@@ -18,7 +20,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane blendMode="MULTIPLY" prefHeight="648.0" prefWidth="1152.0" style="-fx-text-fill: WHITE; -fx-background-color: #e7eaf6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainFormController">
+<AnchorPane blendMode="MULTIPLY" minHeight="600.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-text-fill: WHITE; -fx-background-color: #e7eaf6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainFormController">
    <children>
       <GridPane prefHeight="648.0" prefWidth="283.0" style="-fx-background-color: #113f67;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -31,30 +33,22 @@
           <RowConstraints maxHeight="128.19998779296873" minHeight="10.0" prefHeight="108.99997558593748" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fitHeight="70.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Downloads/filmmaking(1).png" />
+                  <Image url="@../../Pictures/filmmaking(1).png" />
                </image>
                <GridPane.margin>
                   <Insets left="15.0" top="8.0" />
                </GridPane.margin>
             </ImageView>
-            <Label text="WA Videos" textFill="#a2a8d3" textOverrun="CLIP">
+            <Label prefHeight="45.0" prefWidth="127.0" text="WA Videos" textFill="#a2a8d3" textOverrun="CLIP">
                <font>
-                  <Font name="Bernard MT Condensed" size="29.0" />
+                  <Font name="Bernard MT Condensed" size="31.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="90.0" top="10.0" />
+                  <Insets left="100.0" top="10.0" />
                </GridPane.margin>
             </Label>
-            <ImageView fx:id="SidebarBtn" accessibleRole="BUTTON" fitHeight="45.0" fitWidth="48.0" onMouseClicked="#SidebarBtn_Clicked" onMouseEntered="#SidebarBtn_HoverIn" onMouseExited="#SidebarBtn_HoverOut" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-               <image>
-                  <Image url="@../../../../Downloads/menu(1).png" />
-               </image>
-               <GridPane.margin>
-                  <Insets top="10.0" />
-               </GridPane.margin>
-            </ImageView>
             <TilePane alignment="TOP_CENTER" prefHeight="474.0" prefWidth="225.0" GridPane.rowIndex="1">
                <children>
                   <Pane prefHeight="54.0" prefWidth="212.0" TilePane.alignment="CENTER">
@@ -129,7 +123,7 @@
                <children>
                   <ImageView fx:id="SearchBtn" accessibleRole="BUTTON" fitHeight="40.0" fitWidth="30.0" onMouseClicked="#SearchBtn_Clicked" onMouseEntered="#SearchBtn_HoverIn" onMouseExited="#SearchBtn_HoverOut" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/search.png" />
+                        <Image url="@../../Pictures/search.png" />
                      </image>
                      <TilePane.margin>
                         <Insets />
@@ -140,36 +134,36 @@
                         <Insets top="15.0" />
                      </TilePane.margin>
                      <image>
-                        <Image url="@../../../../Downloads/home(2).png" />
+                        <Image url="@../../Pictures/home(1).png" />
                      </image>
                   </ImageView>
                   <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/top-10(2).png" />
-                     </image>
-                     <TilePane.margin>
-                        <Insets top="18.0" />
-                     </TilePane.margin>
-                  </ImageView>
-                  <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Downloads/video(1).png" />
+                        <Image url="@../../Pictures/top-10(2).png" />
                      </image>
                      <TilePane.margin>
                         <Insets top="18.0" />
                      </TilePane.margin>
                   </ImageView>
                   <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Pictures/video(1).png" />
+                     </image>
+                     <TilePane.margin>
+                        <Insets top="18.0" />
+                     </TilePane.margin>
+                  </ImageView>
+                  <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                      <TilePane.margin>
                         <Insets top="18.0" />
                      </TilePane.margin>
                      <image>
-                        <Image url="@../../../../Downloads/tv.png" />
+                        <Image url="@../../Pictures/tv.png" />
                      </image>
                   </ImageView>
                   <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/categories.png" />
+                        <Image url="@../../Pictures/categories.png" />
                      </image>
                      <TilePane.margin>
                         <Insets top="18.0" />
@@ -177,7 +171,7 @@
                   </ImageView>
                   <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/rating.png" />
+                        <Image url="@../../Pictures/rating.png" />
                      </image>
                      <TilePane.margin>
                         <Insets top="18.0" />
@@ -187,18 +181,18 @@
             </TilePane>
             <ImageView fx:id="ExitBtn" accessibleRole="BUTTON" fitHeight="47.0" fitWidth="40.0" onMouseClicked="#ExitBtn_Clicked" onMouseEntered="#ExitBtn_HoverIn" onMouseExited="#ExitBtn_HoverOut" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../Downloads/exit.png" />
+                  <Image url="@../../Pictures/exit.png" />
                </image>
                <GridPane.margin>
                   <Insets left="5.0" top="5.0" />
                </GridPane.margin>
             </ImageView>
-            <ImageView accessibleRole="BUTTON" fitHeight="73.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+            <ImageView fx:id="UserIcon" accessibleRole="BUTTON" fitHeight="73.0" fitWidth="61.0" onMouseClicked="#UserIcon_Clicked" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="13.0" top="10.0" />
                </GridPane.margin>
                <image>
-                  <Image url="@../../../../Downloads/user(1).png" />
+                  <Image url="@../../Pictures/user(1).png" />
                </image>
             </ImageView>
             <Label fx:id="UserNametxt" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="145.0" text="Walid Ali Abdelnazir Ali" textFill="#a2a8d3" wrapText="true" GridPane.rowIndex="2">
@@ -224,5 +218,18 @@
             <InnerShadow choke="0.5" />
          </effect>
       </GridPane>
+      <TableView layoutX="283.0" prefHeight="648.0" prefWidth="870.0" style="-fx-background-color: #e7eaf6;" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="1.1368683772161603E-13" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn maxWidth="295.0" minWidth="200.0" prefWidth="205.0" text="Movie Picture" />
+          <TableColumn maxWidth="300.0" minWidth="160.0" prefWidth="170.0" text="Movie Name" />
+            <TableColumn maxWidth="100.0" minWidth="80.0" text="Show Type" />
+            <TableColumn maxWidth="100.0" minWidth="90.0" prefWidth="90.0" text="Release Date" />
+            <TableColumn maxWidth="100.0" minWidth="80.0" text="IMDb Rating" />
+            <TableColumn maxWidth="220.0" minWidth="140.0" prefWidth="150.0" text="Genres" />
+            <TableColumn maxWidth="100.0" minWidth="75.0" prefWidth="75.0" text="Age Rating" />
+            <TableColumn maxWidth="100.0" minWidth="60.0" prefWidth="60.0" text="Length" />
+            <TableColumn maxWidth="100.0" minWidth="85.0" prefWidth="85.0" text="The Link" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
