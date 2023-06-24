@@ -20,6 +20,9 @@ public class LoginController {
 	public LoginController() throws SQLException {
 		con = DatabaseUtil.getConnection();
 	}
+	
+     static MainFormController mainFormController;
+
     @FXML
     private ResourceBundle resources;
 
@@ -29,6 +32,9 @@ public class LoginController {
     @FXML
     private Button LoginBtn;
 
+    @FXML
+    private CheckBox adminchkbox;
+    
     @FXML
     private Hyperlink NewAccountBtn;
 
@@ -43,12 +49,18 @@ public class LoginController {
     String sql;
     
     @FXML
+    void adminchkbox_Clicked(ActionEvent event) {
+
+    }
+    
+    @FXML
     void LoginBtn_Click(MouseEvent event) {
-    	sql="select * from login where UserName=? and Password=?";
+    	if(!adminchkbox.isSelected()) {sql="select * from login where UserName=? and Password=? and AccountType='User'";}
+    	else {sql="select UserName from login where UserName=? and Password=? and AccountType='Admin'";}
     	try {
     		cmd = con.prepareStatement(sql);
-    		cmd.setString(1, UserBox.getText().trim());
-    		cmd.setString(2, PassBox.getText().trim());
+    		cmd.setString(1, UserBox.getText());
+    		cmd.setString(2, PassBox.getText());
     	    ResultSet Output=cmd.executeQuery();
     	    if(!Output.next()) {
     	    	Alert alert = new Alert(AlertType.ERROR);
@@ -64,7 +76,7 @@ public class LoginController {
     	    }
     	}
     	catch(Exception ex) {
-    		
+    		System.out.println(ex.getMessage());
     	}
     }
 

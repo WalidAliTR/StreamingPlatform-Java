@@ -22,6 +22,7 @@ import javafx.util.Callback;
     	public MainFormController() throws SQLException {
     		con = DatabaseUtil.getConnection();
     	}
+    	
         @FXML
         private ResourceBundle resources;
 
@@ -53,7 +54,7 @@ import javafx.util.Callback;
         private ImageView UserIcon;
 
         @FXML
-        private Label UserNametxt;
+        public Label UserNametxt;
 
         @FXML
         private ToggleButton WatchlistBtn;
@@ -87,7 +88,9 @@ import javafx.util.Callback;
         PreparedStatement cmd=null;
         ResultSet Output=null;
         String sql;
-
+       static String user="user";
+       
+        
         private ObservableList<Movie> fetchMovieDataFromDatabase(String query) {
             ObservableList<Movie> movieList = FXCollections.observableArrayList();
             try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
@@ -157,7 +160,7 @@ import javafx.util.Callback;
         
         @FXML
         void initialize() {
-        	ShowMovieList("select * from movies");      
+        	ShowMovieList("select * from movies");  
         }
         
         @FXML
