@@ -28,8 +28,8 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.79998397827148" minWidth="10.0" prefWidth="58.79997558593749" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="210.8000244140625" minHeight="0.0" prefHeight="83.99999389648437" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="523.2000061035156" minHeight="10.0" prefHeight="450.4000244140625" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="210.8000244140625" minHeight="0.0" prefHeight="138.79999694824218" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="523.2000061035156" minHeight="10.0" prefHeight="465.2000030517578" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="128.19998779296873" minHeight="10.0" prefHeight="108.99997558593748" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
@@ -66,10 +66,10 @@
                         </TextField>
                      </children>
                      <TilePane.margin>
-                        <Insets bottom="5.0" />
+                        <Insets bottom="5.0" top="10.0" />
                      </TilePane.margin>
                   </Pane>
-                  <ToggleButton fx:id="HomeBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#HomeBtn_Clicked" onMouseEntered="#HomeBtn_HoverIn" onMouseExited="#HomeBtn_HoverOut" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Home" textFill="#a2a8d3">
+                  <ToggleButton fx:id="HomeBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#HomeBtn_Clicked" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Home" textFill="#a2a8d3">
                      <TilePane.margin>
                         <Insets right="2.0" top="10.0" />
                      </TilePane.margin>
@@ -77,7 +77,7 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </ToggleButton>
-                  <ToggleButton fx:id="Top10Btn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Top10Btn_Clicked" onMouseEntered="#Top10Btn_HoverIn" onMouseExited="#Top10Btn_HoverOut" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Top 10" textFill="#a2a8d3">
+                  <ToggleButton fx:id="Top10Btn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Top10Btn_Clicked" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Top 10" textFill="#a2a8d3">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -85,7 +85,7 @@
                         <Insets right="2.0" top="10.0" />
                      </TilePane.margin>
                   </ToggleButton>
-                  <ToggleButton fx:id="MoviesBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#MoviesBtn_Clicked" onMouseEntered="#MoviesBtn_HoverIn" onMouseExited="#MoviesBtn_HoverOut" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Movies" textFill="#a2a8d3">
+                  <ToggleButton fx:id="MoviesBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#MoviesBtn_Clicked" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Movies" textFill="#a2a8d3">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -93,7 +93,7 @@
                         <Insets right="2.0" top="10.0" />
                      </TilePane.margin>
                   </ToggleButton>
-                  <ToggleButton fx:id="TVshowsBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#TVshowsBtn_Clicked" onMouseEntered="#TVshowsBtn_HoverIn" onMouseExited="#TVshowsBtn_HoverOut" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="TV Shows" textFill="#a2a8d3">
+                  <ToggleButton fx:id="TVshowsBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#TVshowsBtn_Clicked" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="TV Shows" textFill="#a2a8d3">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -101,15 +101,7 @@
                         <Insets right="2.0" top="10.0" />
                      </TilePane.margin>
                   </ToggleButton>
-                  <ToggleButton fx:id="CategoriesBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#CategoriesBtn_Clicked" onMouseEntered="#CategoriesBtn_HoverIn" onMouseExited="#CategoriesBtn_HoverOut" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Categories" textFill="#a2a8d3">
-                     <font>
-                        <Font name="Segoe UI" size="18.0" />
-                     </font>
-                     <TilePane.margin>
-                        <Insets right="2.0" top="10.0" />
-                     </TilePane.margin>
-                  </ToggleButton>
-                  <ToggleButton fx:id="WatchlistBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#WatchlistBtn_Clicked" onMouseEntered="#WatchlistBtn_Hover" onMouseExited="#WatchlistBtn_Hover" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="My Watchlist" textFill="#a2a8d3">
+                  <ToggleButton fx:id="WatchlistBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#WatchlistBtn_Clicked" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="My Watchlist" textFill="#a2a8d3">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -121,17 +113,17 @@
             </TilePane>
             <TilePane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ImageView fx:id="SearchBtn" accessibleRole="BUTTON" fitHeight="40.0" fitWidth="30.0" onMouseClicked="#SearchBtn_Clicked" onMouseEntered="#SearchBtn_HoverIn" onMouseExited="#SearchBtn_HoverOut" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="SearchBtn" accessibleRole="BUTTON" fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Pictures/search.png" />
                      </image>
                      <TilePane.margin>
-                        <Insets />
+                        <Insets bottom="10.0" top="22.0" />
                      </TilePane.margin>
                   </ImageView>
                   <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                      <TilePane.margin>
-                        <Insets top="15.0" />
+                        <Insets top="11.0" />
                      </TilePane.margin>
                      <image>
                         <Image url="@../../Pictures/home(1).png" />
@@ -142,7 +134,7 @@
                         <Image url="@../../Pictures/top-10(2).png" />
                      </image>
                      <TilePane.margin>
-                        <Insets top="18.0" />
+                        <Insets top="12.0" />
                      </TilePane.margin>
                   </ImageView>
                   <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
@@ -150,36 +142,28 @@
                         <Image url="@../../Pictures/video(1).png" />
                      </image>
                      <TilePane.margin>
-                        <Insets top="18.0" />
+                        <Insets bottom="10.0" top="20.0" />
                      </TilePane.margin>
                   </ImageView>
                   <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                      <TilePane.margin>
-                        <Insets top="18.0" />
+                        <Insets top="5.0" />
                      </TilePane.margin>
                      <image>
                         <Image url="@../../Pictures/tv.png" />
                      </image>
-                  </ImageView>
-                  <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Pictures/categories.png" />
-                     </image>
-                     <TilePane.margin>
-                        <Insets top="18.0" />
-                     </TilePane.margin>
                   </ImageView>
                   <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Pictures/rating.png" />
                      </image>
                      <TilePane.margin>
-                        <Insets top="18.0" />
+                        <Insets top="5.0" />
                      </TilePane.margin>
                   </ImageView>
                </children>
             </TilePane>
-            <ImageView fx:id="ExitBtn" accessibleRole="BUTTON" fitHeight="47.0" fitWidth="40.0" onMouseClicked="#ExitBtn_Clicked" onMouseEntered="#ExitBtn_HoverIn" onMouseExited="#ExitBtn_HoverOut" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ImageView fx:id="ExitBtn" accessibleRole="BUTTON" fitHeight="47.0" fitWidth="40.0" onMouseClicked="#ExitBtn_Clicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <image>
                   <Image url="@../../Pictures/exit.png" />
                </image>
