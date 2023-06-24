@@ -15,13 +15,13 @@
    <children>
       <Button fx:id="LoginBtn" layoutX="301.0" layoutY="128.0" mnemonicParsing="false" onMouseClicked="#LoginBtn_Click" prefHeight="83.0" prefWidth="74.0" style="-fx-background-color: #e7eaf6;" text="Enter" />
       <TextField fx:id="UserBox" layoutX="72.0" layoutY="131.0" prefHeight="34.0" prefWidth="201.0" promptText="User Name" style="-fx-background-color: #e7eaf6;" />
-      <Text fill="#a2a8d3" layoutX="187.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WA Videos" textAlignment="CENTER" wrappingWidth="188.36627197265625">
+      <Text fill="#a2a8d3" layoutX="173.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WA Videos" textAlignment="CENTER" wrappingWidth="188.36627197265625">
          <font>
             <Font name="Bernard MT Condensed" size="48.0" />
          </font>
       </Text>
       <PasswordField fx:id="PassBox" layoutX="72.0" layoutY="174.0" prefHeight="34.0" prefWidth="202.0" promptText="Password" style="-fx-background-color: #e7eaf6;" />
-      <ImageView fitHeight="83.0" fitWidth="93.0" layoutX="90.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="83.0" fitWidth="93.0" layoutX="76.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Pictures/filmmaking(1).png" />
          </image>

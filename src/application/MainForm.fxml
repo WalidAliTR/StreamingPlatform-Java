@@ -218,17 +218,15 @@
             <InnerShadow choke="0.5" />
          </effect>
       </GridPane>
-      <TableView layoutX="283.0" prefHeight="648.0" prefWidth="870.0" style="-fx-background-color: #e7eaf6;" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="1.1368683772161603E-13" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="MoviesTable" layoutX="558.0" prefHeight="648.0" prefWidth="722.0" style="-fx-background-color: #e7eaf6;" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="1.1368683772161603E-13" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn maxWidth="295.0" minWidth="200.0" prefWidth="205.0" text="Movie Picture" />
-          <TableColumn maxWidth="300.0" minWidth="160.0" prefWidth="170.0" text="Movie Name" />
-            <TableColumn maxWidth="100.0" minWidth="80.0" text="Show Type" />
-            <TableColumn maxWidth="100.0" minWidth="90.0" prefWidth="90.0" text="Release Date" />
-            <TableColumn maxWidth="100.0" minWidth="80.0" text="IMDb Rating" />
-            <TableColumn maxWidth="220.0" minWidth="140.0" prefWidth="150.0" text="Genres" />
-            <TableColumn maxWidth="100.0" minWidth="75.0" prefWidth="75.0" text="Age Rating" />
-            <TableColumn maxWidth="100.0" minWidth="60.0" prefWidth="60.0" text="Length" />
-            <TableColumn maxWidth="100.0" minWidth="85.0" prefWidth="85.0" text="The Link" />
+          <TableColumn fx:id="movieNameColumn" maxWidth="300.0" minWidth="160.0" prefWidth="170.0" text="Movie Name" />
+            <TableColumn fx:id="showTypeColumn" maxWidth="100.0" minWidth="80.0" text="Show Type" />
+            <TableColumn fx:id="imdbRatingColumn" maxWidth="100.0" minWidth="80.0" text="IMDb Rating" />
+            <TableColumn fx:id="genresColumn" maxWidth="220.0" minWidth="140.0" prefWidth="150.0" text="Genres" />
+            <TableColumn fx:id="ageRatingColumn" maxWidth="100.0" minWidth="75.0" prefWidth="75.0" text="Age Rating" />
+            <TableColumn fx:id="lengthColumn" maxWidth="100.0" minWidth="60.0" prefWidth="60.0" text="Length" />
+            <TableColumn fx:id="movieLinkColumn" maxWidth="100.0" minWidth="85.0" prefWidth="85.0" text="Watch" />
         </columns>
       </TableView>
    </children>
