@@ -1,6 +1,7 @@
 package com.MySql.Util;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Movie {
@@ -11,6 +12,8 @@ public class Movie {
     private final SimpleStringProperty ageRating;
     private final SimpleStringProperty length;
     private final SimpleStringProperty movieLink;
+   
+
 
     public Movie(String movieName, String showType, double imdbRating, String genres,
                  String ageRating, String length, String movieLink) {

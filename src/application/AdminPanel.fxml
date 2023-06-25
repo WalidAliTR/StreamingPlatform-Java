@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.Tooltip?>
@@ -28,7 +27,6 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="607.600001525879" minHeight="10.0" prefHeight="425.99998779296874" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="308.00004272460944" minHeight="10.0" prefHeight="66.00001220703126" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <TilePane alignment="TOP_CENTER" prefHeight="590.0" prefWidth="267.0">
@@ -75,7 +73,7 @@
                         <Insets right="2.0" top="10.0" />
                      </TilePane.margin>
                   </ToggleButton>
-                  <ToggleButton fx:id="CreateAdminBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#CreateAdminBtn_Clicked" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Create New Admin" textFill="#a2a8d3">
+                  <ToggleButton fx:id="ManageUsersBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ManageUsersBtn_Clicked" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Manage Users" textFill="#a2a8d3">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -83,7 +81,7 @@
                         <Insets right="2.0" top="10.0" />
                      </TilePane.margin>
                   </ToggleButton>
-                  <ToggleButton fx:id="ManageUsersBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ManageUsersBtn_Clicked" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Manage Users" textFill="#a2a8d3">
+                  <ToggleButton fx:id="ChangeAdminProfileBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ChangeAdminProfileBtn_Clicked" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #38598b;" text="Change My Profile" textFill="#a2a8d3">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -101,11 +99,6 @@
             <InnerShadow choke="0.5" />
          </effect>
       </GridPane>
-      <TableView fx:id="TableView" layoutX="245.0" onMouseClicked="#TableView_CellClicked" prefHeight="293.0" prefWidth="537.0" style="-fx-background-color: #e7eaf6;" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="199.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
       <TextField fx:id="Name" layoutX="260.0" layoutY="307.0" prefHeight="26.0" prefWidth="171.0" promptText="Movie Name" />
       <TextField fx:id="MovieLength" layoutX="445.0" layoutY="307.0" prefHeight="26.0" prefWidth="150.0" promptText="Movie Length" />
       <ComboBox fx:id="ShowType" layoutX="259.0" layoutY="350.0" prefWidth="150.0" promptText="Show Type" />
@@ -113,7 +106,7 @@
       <TextField fx:id="Genres" layoutX="609.0" layoutY="349.0" prefHeight="26.0" prefWidth="230.0" promptText="Genres" />
       <Spinner fx:id="IMDbRateSpinner" layoutX="334.0" layoutY="394.0" prefHeight="26.0" prefWidth="76.0" />
       <Text fx:id="IMDbtxt" layoutX="260.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMDb Rating:" />
-      <ToggleButton fx:id="CreateUserBtn" contentDisplay="CENTER" layoutX="451.0" layoutY="308.0" mnemonicParsing="false" onAction="#CreateUserBtn_Clicked" prefHeight="42.0" prefWidth="100.0" style="-fx-background-color: #38598b;" text="Create" textFill="#a2a8d3">
+      <ToggleButton fx:id="CreateUserBtn" contentDisplay="CENTER" layoutX="451.0" layoutY="308.0" mnemonicParsing="false" onAction="#CreateUserBtn_Clicked" prefHeight="42.0" prefWidth="100.0" style="-fx-background-color: #38598b;" text="Save" textFill="#a2a8d3">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font>
@@ -130,5 +123,6 @@
          </font>
       </ToggleButton>
       <CheckBox fx:id="admincheck" layoutX="261.0" layoutY="389.0" mnemonicParsing="false" text="Create as an admin account" />
+      <AnchorPane fx:id="tableviewpanel" layoutX="246.0" prefHeight="281.0" prefWidth="608.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

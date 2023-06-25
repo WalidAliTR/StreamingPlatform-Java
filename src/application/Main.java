@@ -22,19 +22,6 @@ public class Main extends Application {
 		}
 	}
 	
-	void initiateForms() {
-		AnchorPane pane1;
-		try {
-			pane1 = (AnchorPane)FXMLLoader.load(getClass().getResource("MainForm.fxml"));
-			Scene scene = new Scene(pane1);
-			//MainMenu.setScene(scene);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	
 	public static void main(String[] args) {
 		launch(args);
 	}

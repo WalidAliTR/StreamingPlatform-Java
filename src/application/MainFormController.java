@@ -13,6 +13,9 @@ import javafx.scene.input.ZoomEvent;
 import com.MySql.Util.DatabaseUtil;
 import com.MySql.Util.Movie;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
+
 import java.sql.*;
 import javafx.util.Callback;
 
@@ -199,12 +202,10 @@ import javafx.util.Callback;
         }
 
         @FXML
-        void Form_Opened(ZoomEvent event) {
-        }
-        
-        @FXML
         void UserIcon_Clicked(MouseEvent event) {
-        	LoginController.AdminPanel.show();
+        	if(LoginController.AccountType=="Admin") {
+        	LoginController.AdminPanel.show();}
+        	else if(LoginController.AccountType=="User") {LoginController.UserPanel.show();}
         }
 
         @FXML

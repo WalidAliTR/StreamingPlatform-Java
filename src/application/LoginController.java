@@ -18,6 +18,7 @@ public class LoginController {
 	static Stage Login = new Stage();
 	static Stage MainMenu = new Stage();
 	static Stage AdminPanel = new Stage();
+	static Stage UserPanel = new Stage();
 
 	public LoginController() throws SQLException {
 		con = DatabaseUtil.getConnection();
@@ -47,7 +48,7 @@ public class LoginController {
     Connection con=null;
     PreparedStatement cmd=null;
     String sql;
-    public static String User;
+    public static String User,AccountType;
     
     @FXML
     void adminchkbox_Clicked(ActionEvent event) {
@@ -56,8 +57,10 @@ public class LoginController {
     
     @FXML
     void LoginBtn_Click(MouseEvent event) {
-    	if(!adminchkbox.isSelected()) {sql="select * from login where UserName=? and Password=? and AccountType='User'";}
-    	else {sql="select UserName from login where UserName=? and Password=? and AccountType='Admin'";}
+    	if(!adminchkbox.isSelected()) {sql="select * from login where UserName=? and Password=? and AccountType='User'";    	 
+    	AccountType="User";}
+    	else {sql="select * from login where UserName=? and Password=? and AccountType='Admin'";
+    	AccountType="Admin";}
     	try {
     		cmd = con.prepareStatement(sql);
     		cmd.setString(1, UserBox.getText());
@@ -71,7 +74,7 @@ public class LoginController {
     	    	alert.showAndWait();
     	    }
     	    else {
-    	    	User=Output.getNString(1);
+    	    	User=Output.getNString("UserName");
         		MainMenu.show();
     	    	Login.hide();
     	    	UserBox.setText(""); PassBox.setText("");
@@ -125,6 +128,10 @@ public class LoginController {
 			 pane1 = (AnchorPane)FXMLLoader.load(getClass().getResource("AdminPanel.fxml"));
 			 scene = new Scene(pane1);
 			AdminPanel.setScene(scene);
+			//////////////////////////////////////////////
+			pane1 = (AnchorPane)FXMLLoader.load(getClass().getResource("UserPanel.fxml"));
+			scene = new Scene(pane1);
+			UserPanel.setScene(scene);
     	}
     	catch(Exception ex){
     		
