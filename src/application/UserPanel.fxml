@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="formpanel" blendMode="MULTIPLY" minHeight="382.0" minWidth="281.0" prefHeight="382.0" prefWidth="281.0" style="-fx-text-fill: WHITE; -fx-background-color: #e7eaf6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserPanelController">
+   <children>
+      <PasswordField fx:id="UserPassword" layoutX="47.0" layoutY="43.0" prefHeight="26.0" prefWidth="192.0" promptText="User Name">
+         <font>
+            <Font size="15.0" />
+         </font></PasswordField>
+      <TextField fx:id="Name" layoutX="47.0" layoutY="91.0" prefHeight="26.0" prefWidth="192.0" promptText="The Current Password">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="MovieLength" layoutX="47.0" layoutY="139.0" prefHeight="26.0" prefWidth="192.0" promptText="The New Password">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <PasswordField fx:id="UserPassword1" layoutX="47.0" layoutY="184.0" prefHeight="26.0" prefWidth="192.0" promptText="Retype The Password">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <ToggleButton fx:id="CreateUserBtn" contentDisplay="CENTER" layoutX="75.0" layoutY="300.0" mnemonicParsing="false" onAction="#CreateUserBtn_Clicked" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: #b94e68;" text="Delete My Account" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="13.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton fx:id="DeleteUserBtn" contentDisplay="CENTER" layoutX="75.0" layoutY="248.0" mnemonicParsing="false" onAction="#DeleteUserBtn_Clicked" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #38598b;" text="Save Changes" textFill="#a2a8d3">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </ToggleButton>
+   </children>
+</AnchorPane>

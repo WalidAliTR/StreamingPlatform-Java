@@ -17,12 +17,12 @@ import java.sql.*;
 public class LoginController {
 	static Stage Login = new Stage();
 	static Stage MainMenu = new Stage();
+	static Stage AdminPanel = new Stage();
+
 	public LoginController() throws SQLException {
 		con = DatabaseUtil.getConnection();
 	}
 	
-     static MainFormController mainFormController;
-
     @FXML
     private ResourceBundle resources;
 
@@ -47,6 +47,7 @@ public class LoginController {
     Connection con=null;
     PreparedStatement cmd=null;
     String sql;
+    public static String User;
     
     @FXML
     void adminchkbox_Clicked(ActionEvent event) {
@@ -70,6 +71,7 @@ public class LoginController {
     	    	alert.showAndWait();
     	    }
     	    else {
+    	    	User=Output.getNString(1);
         		MainMenu.show();
     	    	Login.hide();
     	    	UserBox.setText(""); PassBox.setText("");
@@ -119,6 +121,10 @@ public class LoginController {
 			AnchorPane pane1 = (AnchorPane)FXMLLoader.load(getClass().getResource("MainForm.fxml"));
 			Scene scene = new Scene(pane1);
 			MainMenu.setScene(scene);
+			//////////////////////////////////////////////
+			 pane1 = (AnchorPane)FXMLLoader.load(getClass().getResource("AdminPanel.fxml"));
+			 scene = new Scene(pane1);
+			AdminPanel.setScene(scene);
     	}
     	catch(Exception ex){
     		

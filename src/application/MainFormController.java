@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ZoomEvent;
+
 import com.MySql.Util.DatabaseUtil;
 import com.MySql.Util.Movie;
 import javafx.scene.control.*;
@@ -54,7 +56,7 @@ import javafx.util.Callback;
         private ImageView UserIcon;
 
         @FXML
-        public Label UserNametxt;
+        private Label UserNametxt;
 
         @FXML
         private ToggleButton WatchlistBtn;
@@ -182,7 +184,8 @@ import javafx.util.Callback;
         @FXML
         void SearchBox_KeyPressed(KeyEvent event) {
         	if(event.isConsumed())
-        	ShowMovieList("select * from movies where MovieName like '%"+SearchBox.getText()+"%'");      
+        	ShowMovieList("select * from movies where MovieName like '%"+SearchBox.getText()+"%'");    
+        	UserNametxt.setText(LoginController.User);
         }
 
         @FXML
@@ -196,8 +199,12 @@ import javafx.util.Callback;
         }
 
         @FXML
+        void Form_Opened(ZoomEvent event) {
+        }
+        
+        @FXML
         void UserIcon_Clicked(MouseEvent event) {
-
+        	LoginController.AdminPanel.show();
         }
 
         @FXML
