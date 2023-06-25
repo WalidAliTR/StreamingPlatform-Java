@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
@@ -101,7 +100,6 @@
       </GridPane>
       <TextField fx:id="Name" layoutX="260.0" layoutY="307.0" prefHeight="26.0" prefWidth="171.0" promptText="Movie Name" />
       <TextField fx:id="MovieLength" layoutX="445.0" layoutY="307.0" prefHeight="26.0" prefWidth="150.0" promptText="Movie Length" />
-      <ComboBox fx:id="ShowType" layoutX="259.0" layoutY="350.0" prefWidth="150.0" promptText="Show Type" />
       <TextField fx:id="MovieLink" layoutX="609.0" layoutY="307.0" prefHeight="26.0" prefWidth="230.0" promptText="Movie Link" />
       <TextField fx:id="Genres" layoutX="609.0" layoutY="349.0" prefHeight="26.0" prefWidth="230.0" promptText="Genres" />
       <Spinner fx:id="IMDbRateSpinner" layoutX="334.0" layoutY="394.0" prefHeight="26.0" prefWidth="76.0" />
@@ -116,13 +114,14 @@
             <Font name="Segoe UI" size="15.0" />
          </font>
       </ToggleButton>
-      <ComboBox fx:id="AgeRate" layoutX="444.0" layoutY="350.0" prefWidth="150.0" promptText="Age Rating" />
       <ToggleButton fx:id="DeleteUserBtn" contentDisplay="CENTER" layoutX="451.0" layoutY="364.0" mnemonicParsing="false" onAction="#DeleteUserBtn_Clicked" prefHeight="42.0" prefWidth="100.0" style="-fx-background-color: #38598b;" text="Delete" textFill="#a2a8d3">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font>
       </ToggleButton>
-      <CheckBox fx:id="admincheck" layoutX="261.0" layoutY="389.0" mnemonicParsing="false" text="Create as an admin account" />
+      <CheckBox fx:id="admincheck" layoutX="261.0" layoutY="389.0" mnemonicParsing="false" text="Create an admin account" />
       <AnchorPane fx:id="tableviewpanel" layoutX="246.0" prefHeight="281.0" prefWidth="608.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
+      <TextField fx:id="ShowType" layoutX="260.0" layoutY="351.0" prefHeight="26.0" prefWidth="171.0" promptText=" Show Type" />
+      <TextField fx:id="AgeRate" layoutX="445.0" layoutY="350.0" prefHeight="26.0" prefWidth="150.0" promptText="Age Rating" />
    </children>
 </AnchorPane>

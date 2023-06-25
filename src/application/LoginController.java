@@ -87,7 +87,7 @@ public class LoginController {
 
     @FXML
     void NewAccountBtn_Click(ActionEvent event) {
-		sql="insert into login (UserName,Password) values (?,?)";
+		sql="insert into login (UserName,Password,AccountType) values (?,?,'User')";
     	try {
     		if(UserBox.getText().length()<4 || PassBox.getText().length()<5) {
     			Alert alert = new Alert(AlertType.ERROR);

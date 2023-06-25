@@ -3,7 +3,9 @@ package application;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.MySql.Util.DatabaseUtil;
@@ -15,7 +17,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
@@ -25,6 +29,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -33,6 +39,9 @@ import javafx.util.Callback;
 
 public class AdminPanelController {
 
+	public AdminPanelController() throws SQLException {
+		con = DatabaseUtil.getConnection();
+	}
     @FXML
     private ResourceBundle resources;
 
@@ -43,7 +52,7 @@ public class AdminPanelController {
     private ToggleButton AddMovieBtn;
 
     @FXML
-    private ComboBox<String> AgeRate;
+    private TextField AgeRate;
 
     @FXML
     private ToggleButton ChangeAdminProfileBtn;
@@ -85,7 +94,7 @@ public class AdminPanelController {
     private TextField SearchBox;
 
     @FXML
-    private ComboBox<String> ShowType;
+    private TextField ShowType;
 
     @FXML
     private ToggleButton UpdateMovieBtn;
@@ -102,10 +111,16 @@ public class AdminPanelController {
     @FXML
     private AnchorPane tableviewpanel;
     
+    Connection con=null;
+    PreparedStatement cmd=null;
+    String sql;
+    String MovieOperation="";
+    
     @FXML
     void AddMovieBtn_Clicked(ActionEvent event) {
     	ShowMovieList("select * from movies");      
     	DisplayMovies();
+    	MovieOperation="add";
     }
 
     @FXML
@@ -115,17 +130,109 @@ public class AdminPanelController {
 
     @FXML
     void CreateUserBtn_Clicked(ActionEvent event) {
-    }
+    	if (admincheck.isSelected()) {
+    		sql="insert into login (UserName,Password,AccountType) values (?,?,Admin)";
+        	try {
+        		if(Name.getText().length()<4 || UserPassword.getText().length()<5) {
+        			Alert alert = new Alert(AlertType.ERROR);
+        	    	alert.setContentText("Your Password Or User Name Is Shorter Than Has To Be, Please Check Them And Try Again!");
+        	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+        	    	alert.getButtonTypes().setAll(btn);
+        	    	alert.showAndWait();
+        		}
+        		else {
+        		cmd = con.prepareStatement(sql);
+        		cmd.setString(1, Name.getText());
+        		cmd.setString(2, UserPassword.getText());
+        	    cmd.execute();
+        	    Alert alert = new Alert(AlertType.CONFIRMATION);
+    	    	alert.setContentText("The New Account Has Been Creeated Successfully!");
+    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    	    	alert.getButtonTypes().setAll(btn);
+    	    	alert.showAndWait();
+    	    	}
+        		Name.setText(""); UserPassword.setText("");
+        	}
+        	catch(Exception ex) {
+        		Alert alert = new Alert(AlertType.ERROR);
+    	    	alert.setContentText(ex.getMessage());
+    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    	    	alert.getButtonTypes().setAll(btn);
+    	    	alert.showAndWait();
+        	}
+    	}
+    	/////////////////////////////////////////////////
+    	else {
+    	    	try {
+    	    	    	if( UserPassword.getText().length()>4){
+    	    	    		sql="update login set Password='"+UserPassword.getText()+"' where UserName='"+Name.getText()+"'";
+    		        		cmd = con.prepareStatement(sql);
+    		        	    cmd.execute();
+    		        	    Alert alert = new Alert(AlertType.CONFIRMATION);
+    		    	    	alert.setContentText("The Account Data Has Been Changed Successfully!");
+    		    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    		    	    	alert.getButtonTypes().setAll(btn);
+    		    	    	alert.showAndWait();
+    		    	    	LoginController.User=Name.getText();
+    	    	    	}
+    	    	    	else {
+    	    	    		Alert alert = new Alert(AlertType.ERROR);
+                	    	alert.setContentText("The User Account Can't Be Less Than 4 characters");
+                	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+                	    	alert.getButtonTypes().setAll(btn);
+                	    	alert.showAndWait();
+    	    	    	}
+    	    	    }
+        	    	catch(Exception ex) {
+        	    		Alert alert = new Alert(AlertType.ERROR);
+            	    	alert.setContentText(ex.getMessage());
+            	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+            	    	alert.getButtonTypes().setAll(btn);
+            	    	alert.showAndWait();
+        	    	}
+        		}
+    	}
     
     @FXML
     void DeleteMovieBtn_Clicked(ActionEvent event) {
     	ShowMovieList("select * from movies");      
     	DisplayMovies();
+    	MovieOperation="delete";
     }
 
     @FXML
     void DeleteUserBtn_Clicked(ActionEvent event) {
-
+    	sql="select * from login where UserName='"+LoginController.User+"' and Password='"+UserPassword.getText()+"' ";
+    	try {
+    		cmd = con.prepareStatement(sql);
+    	    ResultSet Output=cmd.executeQuery();
+    	    if(!Output.next()) {
+    	    	Alert alert = new Alert(AlertType.ERROR);
+    	    	alert.setContentText("Your Password is invaild, Please Try Again!!");
+    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    	    	alert.getButtonTypes().setAll(btn);
+    	    	alert.showAndWait();
+    	    	UserPassword.setText("");
+    	    }
+    	    else {
+    	    	sql="delete from login where UserName='"+Name.getText()+"' and AccountType='User'";
+        		cmd = con.prepareStatement(sql);
+        	    cmd.execute();
+        	    Alert alert = new Alert(AlertType.CONFIRMATION);
+    	    	alert.setContentText("The Account Has Been Deleted Successfully!");
+    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    	    	alert.getButtonTypes().setAll(btn);
+    	    	alert.showAndWait();
+    	    	LoginController.User=Name.getText();
+    	    }
+    	}
+    	catch(Exception ex) {
+    		Alert alert = new Alert(AlertType.ERROR);
+	    	alert.setContentText(ex.getMessage());
+	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+	    	alert.getButtonTypes().setAll(btn);
+	    	alert.showAndWait();
+    	}
     }
 
     @FXML
@@ -137,6 +244,80 @@ public class AdminPanelController {
     @FXML
     void MovieSaveBtn_Clicked(ActionEvent event) {
 
+    	if(MovieOperation=="add") {
+    		sql="insert into movies values (?,?,?,?,?,?,?)";
+        	try {
+        		cmd = con.prepareStatement(sql);
+        		cmd.setString(1, Name.getText());
+        		cmd.setString(2, ShowType.getText());
+        		cmd.setDouble(3, IMDbRateSpinner.getValue());
+        		cmd.setString(4, Genres.getText());
+        		cmd.setString(5, AgeRate.getText());
+        		cmd.setString(6, MovieLength.getText());
+        		cmd.setString(7, MovieLink.getText());
+
+        	    cmd.execute();
+        	    Alert alert = new Alert(AlertType.CONFIRMATION);
+    	    	alert.setContentText("The New Movie Has Been Added Successfully!");
+    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    	    	alert.getButtonTypes().setAll(btn);
+    	    	alert.showAndWait();
+    	    	
+        	}
+        	catch(Exception ex) {
+        		Alert alert = new Alert(AlertType.ERROR);
+    	    	alert.setContentText(ex.getMessage());
+    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    	    	alert.getButtonTypes().setAll(btn);
+    	    	alert.showAndWait();
+        	}
+    	}
+    	else if (MovieOperation=="update") {
+    		sql="update movies set MovieName=?,ShowType=?,IMDbRating=?,Genres=?,AgeRating=?,Length=?,MovieLink=? where MovieName='"+Name.getText()+"'";
+        	try {
+        		cmd = con.prepareStatement(sql);
+        		cmd.setString(1, Name.getText());
+        		cmd.setString(2, ShowType.getText());
+        		cmd.setDouble(3, IMDbRateSpinner.getValue());
+        		cmd.setString(4, Genres.getText());
+        		cmd.setString(5, AgeRate.getText());
+        		cmd.setString(6, MovieLength.getText());
+        		cmd.setString(7, MovieLink.getText());
+
+        	    cmd.execute();
+        	    Alert alert = new Alert(AlertType.CONFIRMATION);
+    	    	alert.setContentText("The New Movie Has Been Updated Successfully!");
+    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    	    	alert.getButtonTypes().setAll(btn);
+    	    	alert.showAndWait();
+        	}
+        	catch(Exception ex) {
+        		Alert alert = new Alert(AlertType.ERROR);
+    	    	alert.setContentText(ex.getMessage());
+    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    	    	alert.getButtonTypes().setAll(btn);
+    	    	alert.showAndWait();
+    	    	}
+    	}
+    	else if (MovieOperation=="delete") {
+    		sql="delete from movies where MovieName='"+Name.getText()+"'";
+        	try {
+        		cmd = con.prepareStatement(sql);
+        	    cmd.execute();
+        	    Alert alert = new Alert(AlertType.CONFIRMATION);
+    	    	alert.setContentText("The New Movie Has Been Deleted Successfully!");
+    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    	    	alert.getButtonTypes().setAll(btn);
+    	    	alert.showAndWait();
+        	}
+        	catch(Exception ex) {
+        		Alert alert = new Alert(AlertType.ERROR);
+    	    	alert.setContentText(ex.getMessage());
+    	    	ButtonType btn = new ButtonType("Ok",ButtonData.CANCEL_CLOSE);
+    	    	alert.getButtonTypes().setAll(btn);
+    	    	alert.showAndWait();
+    	    	}
+    	}
     }
 
     @FXML
@@ -149,6 +330,8 @@ public class AdminPanelController {
     void UpdateMovieBtn_Clicked(ActionEvent event) {
     	ShowMovieList("select * from movies");      
     	DisplayMovies();
+    	MovieOperation="update";
+
     }
 
     @FXML
